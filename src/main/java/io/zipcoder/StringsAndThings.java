@@ -71,9 +71,19 @@ public class StringsAndThings {
      */
     public Boolean gIsHappy(String input){
 
-        input.indexOf('g');
+        int count = 0;
+        String[] inputArr = input.split("");
+        for (int i = 0; i < inputArr.length-1; i++) {
+            if (inputArr[i].equals("g")){
+                if (inputArr[i].equals(inputArr[i+1]) || inputArr[i].equals(inputArr[i-1])){
+                    count++;
+                }
+            }
+        }
 
-        return null;
+        return count>0;
+
+
     }
 
 
