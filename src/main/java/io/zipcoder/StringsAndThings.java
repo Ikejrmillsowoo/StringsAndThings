@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import org.codehaus.plexus.util.StringUtils;
+
 /**
  * @author tariq
  */
@@ -18,9 +20,14 @@ public class StringsAndThings {
         int count = 0;
         String [] arr = input.split(" ");
         for (int i = 0; i < arr.length; i++){
-            int num = arr[i].length();
-            char c = (arr[i].charAt(num-1));
-            if (c == 'y' || c == 'z') {
+//            int num = arr[i].length();
+//            char c = (arr[i].charAt(num-1));
+//            if (c == 'y' || c == 'z') {
+//                count++;
+//            }
+
+            //better option
+            if (arr[i].endsWith("y") || arr[i].endsWith("z")) {
                 count++;
             }
         }
@@ -49,7 +56,10 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int countIs = StringUtils.countMatches(input, "is");
+        int countNot = StringUtils.countMatches(input, "not");
+
+        return countIs==countNot;
     }
 
     /**
